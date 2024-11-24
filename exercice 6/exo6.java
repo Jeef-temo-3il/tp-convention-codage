@@ -1,16 +1,22 @@
 public class Facture {
-    public double calculerTotal(double montant, boolean clientVIP, boolean fraisLivraison) {
+    
+    public double verifier(boolean clientVIP, boolean fraisLivraison){
+         if (clientVIP){
+            calculerTotal(double montant);
+         }
+         if (montant < 500){
+           calculerTotal(double montant); 
+         }
+    }
+    public double calculerTotal(double montant){
         double total = montant;
-        if (clientVIP) {
-            if (montant > 1000) {
+         if (montant > 1000) {
                 total -= montant * 0.1; // Réduction de 10%
+                return total;
             }
-        }
-        if (fraisLivraison) {
-            if (montant < 500) {
+         if (montant < 500) {
                 total += 20; // Frais de livraison
+                return total;
             }
-        }
-        return total;
     }
 }
